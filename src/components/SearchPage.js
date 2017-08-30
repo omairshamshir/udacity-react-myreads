@@ -3,8 +3,14 @@ import '../assets/css/App.css'
 import * as BooksAPI from "../server/BooksAPI";
 import Book from "./Book";
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types'
 
 class SearchPage extends React.Component {
+    static propTypes = {
+        booksOnShelf: PropTypes.array.isRequired,
+        updateBookShelf: PropTypes.func.isRequired,
+    };
+
     state = {
         query: '',
         books: []
