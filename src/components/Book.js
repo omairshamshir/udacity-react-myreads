@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../assets/css/App.css'
+import '../assets/css/book.css'
 import PropTypes from 'prop-types'
 
 
@@ -17,13 +18,12 @@ class Book extends Component {
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{
-                        width: 128,
-                        height: 193,
-                        backgroundImage: `url(${this.props.book.imageLinks.thumbnail})`
-                    }}></div>
+                    <div className="book-cover"><img className="thumbnail-image"
+                                                     src={this.props.book.imageLinks.thumbnail}/>
+                    </div>
                     <div className="book-shelf-changer">
-                        <select onChange={(event) => this.HandleShelfChangeEvent(event.target.value)}>
+                        <select onChange={(event) => this.HandleShelfChangeEvent(event.target.value)}
+                                value={this.props.book.shelf}>
                             <option value="none" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>
